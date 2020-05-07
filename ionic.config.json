@@ -1,0 +1,7 @@
+{
+  "name": "nfcrypt",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

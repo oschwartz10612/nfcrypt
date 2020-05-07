@@ -1,0 +1,29 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Tab 1
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Write Encrypted Data</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+
+
+  <ng-container *ngIf="(writeState | async) == true; else notWriting">
+    Approach NFC tag...
+    <ion-button color="warning" (click)="stopWrite()">Cancel</ion-button>
+  </ng-container>
+  <ng-template #notWriting>
+    <ion-item>
+      <ion-textarea placeholder="Enter key or fingerprint phrase" #secretInput></ion-textarea>
+    </ion-item>
+    <ion-button (click)="writeToTag(secretInput.value)">Write to tag</ion-button>
+  </ng-template>
+  
+</ion-content>
